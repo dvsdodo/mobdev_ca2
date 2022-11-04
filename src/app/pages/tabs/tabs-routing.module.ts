@@ -22,20 +22,28 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'people',
+        path: 'species',
         children: [
           {
             path: '',
-            loadChildren: () => import('../people/people.module').then( m => m.PeoplePageModule)
+            loadChildren: () => import('../species/species.module').then( m => m.SpeciesPageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('../specimen-details/specimen-details.module').then( m => m.SpecimenDetailsPageModule)
           }
         ]
       },
       {
-        path: 'planets',
+        path: 'starships',
         children: [
           {
             path: '',
-            loadChildren: () => import('../planets/planets.module').then( m => m.PlanetsPageModule)
+            loadChildren: () => import('../starships/starships.module').then( m => m.StarshipsPageModule)
+          },
+          {
+            path: ':id',
+            loadChildren: () => import('../starship-details/starship-details.module').then( m => m.StarshipDetailsPageModule)
           }
         ]
       }
@@ -44,6 +52,16 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/tabs/films',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/species',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    redirectTo: '/tabs/starships',
     pathMatch: 'full'
   }
 ];

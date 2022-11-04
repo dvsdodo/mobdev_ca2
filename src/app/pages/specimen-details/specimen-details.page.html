@@ -1,0 +1,34 @@
+	
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start" defaultHref="/tabs/(species:species)">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ species?.title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="unfavoriteSpecies()" *ngIf="isFavorite">
+        <ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>
+      </ion-button>
+      <ion-button (click)="favoriteSpecies()" *ngIf="!isFavorite">
+        <ion-icon name="star-outline" slot="icon-only" color="secondary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding="">
+ 
+  <ion-card *ngIf="species" class="movie-card">
+    <ion-card-header>Name {{ species.name }}</ion-card-header>
+    <ion-card-content>
+      {{ species.opening_crawl }}
+    </ion-card-content>
+ 
+    <ion-item class="movie-info" lines="none">
+      <ion-icon name="species" slot="start"></ion-icon>
+      Manufacturer: {{ species.manufacturer }}
+    </ion-item>
+ 
+  </ion-card>
+ 
+</ion-content>
