@@ -4,7 +4,7 @@
     <ion-buttons slot="start" defaultHref="/tabs/(species:species)">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ species?.name }}</ion-title>
+    <ion-title>{{ specimen?.name }}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="unfavoriteSpecimen()" *ngIf="isFavorite">
         <ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>
